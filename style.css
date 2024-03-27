@@ -1,0 +1,45 @@
+.grid{
+    position: absolute;
+    width: 530px;
+    height: 300px;
+    border: 2px solid black;
+    padding: 0px;
+}
+.block{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+}
+
+.user{
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    background-color: black;
+
+}
+
+.ball{
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    border-radius: 10px ;
+    background-color: red;
+    z-index: 200;
+    border: 2px black solid
+}
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.grid p{
+    position: absolute;
+    top: 130px;
+    left: 215px;
+    font-size: 1.4em;
+    color: rgba(0, 89, 255, 0.473);
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 700;
+}
