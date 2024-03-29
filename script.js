@@ -81,14 +81,14 @@ function moveUser(event){
         case 'a': 
             if(currentPosition[0]>0)
             {
-                currentPosition[0] -= 16;
+                currentPosition[0] -= 20;
                 drawUser();
             }
         break;
         case 'd':
             if(currentPosition[0]<=540-blockWidth)
             {
-                currentPosition[0] += 16;
+                currentPosition[0] += 20;
                 drawUser();
             }
         break;
@@ -175,14 +175,18 @@ function checkWallCollision(){
         window.alert("You Lost The Game ☹️");
         postGameConfig();
     }
-    else if(ballCurrentPosition[0]+ballDimention>=currentPosition[0] && ballCurrentPosition[0]<=currentPosition[0]+100 && ballCurrentPosition[1]==currentPosition[1]+20 &&   ballDirection ==='SW')
+    else if(ballCurrentPosition[0]+ballDimention>=currentPosition[0] && ballCurrentPosition[0]<=currentPosition[0]+100 && ballCurrentPosition[1]<=currentPosition[1]+20 &&   ballDirection ==='SW')
     {
-        ballCurrentPosition[0]-=10;
+        let boost = [0,5,10,15,30]
+        let randomIndx = Math.floor(Math.random()*4);
+        ballCurrentPosition[0]-=boost[randomIndx];
         ballDirection='NW'; 
     }
-    else if(ballCurrentPosition[0]+ballDimention>=currentPosition[0] && ballCurrentPosition[0]<=currentPosition[0]+100 && ballCurrentPosition[1]==currentPosition[1]+20 && ballDirection ==='SE')
+    else if(ballCurrentPosition[0]+ballDimention>=currentPosition[0] && ballCurrentPosition[0]<=currentPosition[0]+100 && ballCurrentPosition[1]<=currentPosition[1]+20 && ballDirection ==='SE')
     {
-        ballCurrentPosition[0]+=10;
+        let boost = [0,5,10,15,40]
+        let randomIndx = Math.floor(Math.random()*4);
+        ballCurrentPosition[0]+=boost[randomIndx];
         ballDirection='NE'; 
     }
     else if(ballCurrentPosition[1]+ballDimention>=300 && ballDirection ==='NE')
@@ -226,7 +230,7 @@ function blockCollisionActions(block) {
         action = true;
         score++;
     }
-    else if (ballCurrentPosition[0] >= block.topLeft[0] && ballCurrentPosition[0] <= block.topRight[0] &&
+    else if (ballCurrentPosition[0]+ballDimention >= block.topLeft[0] && ballCurrentPosition[0] <= block.topRight[0] &&
         ballCurrentPosition[1] === block.topLeft[1] && ballDirection === 'SW') {
         ballDirection = 'NW';
         console.log('Top')
@@ -234,7 +238,7 @@ function blockCollisionActions(block) {
         action = true;
         score++;
     }
-    else if (ballCurrentPosition[0] >= block.topLeft[0] && ballCurrentPosition[0] <= block.topRight[0] &&
+    else if (ballCurrentPosition[0]+ballDimention >= block.topLeft[0] && ballCurrentPosition[0] <= block.topRight[0] &&
         ballCurrentPosition[1] === block.topLeft[1] && ballDirection === 'SE') {
         ballDirection = 'NE';
         console.log('Top')
