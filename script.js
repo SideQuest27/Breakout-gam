@@ -177,10 +177,12 @@ function checkWallCollision(){
     }
     else if(ballCurrentPosition[0]+ballDimention>=currentPosition[0] && ballCurrentPosition[0]<=currentPosition[0]+100 && ballCurrentPosition[1]==currentPosition[1]+20 &&   ballDirection ==='SW')
     {
+        ballCurrentPosition[0]-=10;
         ballDirection='NW'; 
     }
     else if(ballCurrentPosition[0]+ballDimention>=currentPosition[0] && ballCurrentPosition[0]<=currentPosition[0]+100 && ballCurrentPosition[1]==currentPosition[1]+20 && ballDirection ==='SE')
     {
+        ballCurrentPosition[0]+=10;
         ballDirection='NE'; 
     }
     else if(ballCurrentPosition[1]+ballDimention>=300 && ballDirection ==='NE')
